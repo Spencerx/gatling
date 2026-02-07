@@ -41,8 +41,7 @@ public interface JmsMessageMatcher {
    * @return the matchId
    * @throws JMSException a JMS Exception
    */
-  @NonNull
-  String requestMatchId(@NonNull Message msg) throws JMSException;
+  @NonNull String requestMatchId(@NonNull Message msg) throws JMSException;
 
   /**
    * Extract the matchId out of a response inbound message
@@ -51,6 +50,5 @@ public interface JmsMessageMatcher {
    * @return the matchId
    * @throws JMSException a JMS Exception
    */
-  @NonNull
-  String responseMatchId(@NonNull Message msg) throws JMSException;
+  @NonNull String responseMatchId(@NonNull Message msg) throws JMSException;
 }

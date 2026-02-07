@@ -33,8 +33,10 @@ public abstract class PartImpl implements Closeable {
 
   /** Content disposition as a byte */
   static final byte QUOTE_BYTE = '\"';
+
   /** Carriage return/linefeed as a byte array */
   static final byte[] CRLF_BYTES = "\r\n".getBytes(US_ASCII);
+
   /** Extra characters as a byte array */
   static final byte[] EXTRA_BYTES = "--".getBytes(US_ASCII);
 

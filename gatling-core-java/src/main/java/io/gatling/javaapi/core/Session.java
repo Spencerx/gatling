@@ -366,7 +366,9 @@ public final class Session {
     return wrapped.contains(key);
   }
 
-  /** @return if the Session's status is failure */
+  /**
+   * @return if the Session's status is failure
+   */
   public boolean isFailed() {
     return wrapped.isFailed();
   }

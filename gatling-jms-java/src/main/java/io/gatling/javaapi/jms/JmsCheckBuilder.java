@@ -33,48 +33,42 @@ public interface JmsCheckBuilder {
      *
      * @return a new Find
      */
-    @NonNull
-    Find<String> ofString();
+    @NonNull Find<String> ofString();
 
     /**
      * Define that the extracted value is a Boolean
      *
      * @return a new Find
      */
-    @NonNull
-    Find<Boolean> ofBoolean();
+    @NonNull Find<Boolean> ofBoolean();
 
     /**
      * Define that the extracted value is an Integer
      *
      * @return a new Find
      */
-    @NonNull
-    Find<Integer> ofInt();
+    @NonNull Find<Integer> ofInt();
 
     /**
      * Define that the extracted value is a Long
      *
      * @return a new Find
      */
-    @NonNull
-    Find<Long> ofLong();
+    @NonNull Find<Long> ofLong();
 
     /**
      * Define that the extracted value is a Double
      *
      * @return a new Find
      */
-    @NonNull
-    Find<Double> ofDouble();
+    @NonNull Find<Double> ofDouble();
 
     /**
      * Define that the extracted value is an untyped object
      *
      * @return a new Find
      */
-    @NonNull
-    Find<Object> ofObject();
+    @NonNull Find<Object> ofObject();
 
     /**
      * Default implementation of {@link JmsPropertyOfTypeFind}

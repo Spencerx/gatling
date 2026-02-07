@@ -1,5 +1,5 @@
-import net.moznion.sbt.SbtSpotless.autoImport.{ spotless, spotlessJava, spotlessKotlin }
-import net.moznion.sbt.spotless.config.{ GoogleJavaFormatConfig, JavaConfig, KotlinConfig, SpotlessConfig }
+import net.moznion.sbt.SbtSpotless.autoImport.{ spotless, spotlessJava }
+import net.moznion.sbt.spotless.config.{ GoogleJavaFormatConfig, JavaConfig, SpotlessConfig }
 import sbt.Keys._
 import sbt._
 
@@ -21,8 +21,7 @@ object BuildSettings {
     ),
     spotlessJava := JavaConfig(
       googleJavaFormat = GoogleJavaFormatConfig()
-    ),
-    spotlessKotlin := KotlinConfig()
+    )
   )
 
   lazy val gatlingModuleSettings =

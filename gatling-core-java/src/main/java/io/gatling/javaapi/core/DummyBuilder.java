@@ -28,8 +28,8 @@ public final class DummyBuilder implements ActionBuilder {
 
   public DummyBuilder(
       @NonNull Function1<io.gatling.core.session.Session, Validation<String>> requestName,
-      @NonNull
-          Function1<io.gatling.core.session.Session, Validation<Object>> responseTimeInMillis) {
+      @NonNull Function1<io.gatling.core.session.Session, Validation<Object>>
+          responseTimeInMillis) {
     this(
         io.gatling.core.action.builder.DummyBuilder$.MODULE$.apply(
             requestName, responseTimeInMillis));

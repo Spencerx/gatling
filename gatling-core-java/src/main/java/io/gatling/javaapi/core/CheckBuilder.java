@@ -321,24 +321,21 @@ public interface CheckBuilder {
      * @param occurrence the rank of the target value in the extracted values list
      * @return the next Check DSL step
      */
-    @NonNull
-    Validate<JavaX> find(int occurrence);
+    @NonNull Validate<JavaX> find(int occurrence);
 
     /**
      * Target all the occurrences of the extracted values
      *
      * @return the next Check DSL step
      */
-    @NonNull
-    Validate<List<JavaX>> findAll();
+    @NonNull Validate<List<JavaX>> findAll();
 
     /**
      * Target a random occurrence in the extracted values
      *
      * @return the next Check DSL step
      */
-    @NonNull
-    Validate<JavaX> findRandom();
+    @NonNull Validate<JavaX> findRandom();
 
     /**
      * Target multiple random occurrences in the extracted values
@@ -346,8 +343,7 @@ public interface CheckBuilder {
      * @param num the number of occurrences to collect
      * @return the next Check DSL step
      */
-    @NonNull
-    Validate<List<JavaX>> findRandom(int num);
+    @NonNull Validate<List<JavaX>> findRandom(int num);
 
     /**
      * Target multiple random occurrences in the extracted values
@@ -356,16 +352,14 @@ public interface CheckBuilder {
      * @param failIfLess fail if num is greater than the number of extracted values
      * @return the next Check DSL step
      */
-    @NonNull
-    Validate<List<JavaX>> findRandom(int num, boolean failIfLess);
+    @NonNull Validate<List<JavaX>> findRandom(int num, boolean failIfLess);
 
     /**
      * Target the count of extracted values
      *
      * @return the next Check DSL step
      */
-    @NonNull
-    Validate<Integer> count();
+    @NonNull Validate<Integer> count();
 
     /**
      * Default implementation of {@link MultipleFind}
@@ -450,8 +444,7 @@ public interface CheckBuilder {
      * @param <X2> the transformed value
      * @return a new Validate
      */
-    @NonNull
-    <X2> Validate<X2> transform(@NonNull Function<X, X2> f);
+    @NonNull <X2> Validate<X2> transform(@NonNull Function<X, X2> f);
 
     /**
      * Transform the extracted value, whith access to the current {@link Session}
@@ -460,8 +453,7 @@ public interface CheckBuilder {
      * @param <X2> the transformed value
      * @return a new Validate
      */
-    @NonNull
-    <X2> Validate<X2> transformWithSession(@NonNull BiFunction<X, Session, X2> f);
+    @NonNull <X2> Validate<X2> transformWithSession(@NonNull BiFunction<X, Session, X2> f);
 
     /**
      * Provide a default value if the check wasn't able to extract anything
@@ -469,8 +461,7 @@ public interface CheckBuilder {
      * @param value the default value
      * @return a new Validate
      */
-    @NonNull
-    Validate<X> withDefault(@NonNull X value);
+    @NonNull Validate<X> withDefault(@NonNull X value);
 
     /**
      * Provide a default Gatling Expression Language value if the check wasn't able to extract
@@ -479,8 +470,7 @@ public interface CheckBuilder {
      * @param value the default value as a Gatling Expression Language String
      * @return a new Validate
      */
-    @NonNull
-    Validate<X> withDefaultEl(@NonNull String value);
+    @NonNull Validate<X> withDefaultEl(@NonNull String value);
 
     /**
      * Provide a default Gatling Expression Language value if the check wasn't able to extract
@@ -489,8 +479,7 @@ public interface CheckBuilder {
      * @param defaultValue the default value as a function
      * @return a new Validate
      */
-    @NonNull
-    Validate<X> withDefault(@NonNull Function<Session, X> defaultValue);
+    @NonNull Validate<X> withDefault(@NonNull Function<Session, X> defaultValue);
 
     /**
      * Provide a custom validation strategy
@@ -499,8 +488,7 @@ public interface CheckBuilder {
      * @param f the custom validation function, must throw to trigger a failure
      * @return a new Final
      */
-    @NonNull
-    Final validate(@NonNull String name, @NonNull BiFunction<X, Session, X> f);
+    @NonNull Final validate(@NonNull String name, @NonNull BiFunction<X, Session, X> f);
 
     /**
      * Validate the extracted value is equal to an expected value
@@ -508,8 +496,7 @@ public interface CheckBuilder {
      * @param expected the expected value
      * @return a new Final
      */
-    @NonNull
-    Final is(X expected);
+    @NonNull Final is(X expected);
 
     /**
      * Alias for {@link Validate#is(Object)} as `is` is a reserved keyword in Kotlin
@@ -529,8 +516,7 @@ public interface CheckBuilder {
      * @param expected the expected value as a Gatling Expression Language String
      * @return a new Final
      */
-    @NonNull
-    Final isEL(String expected);
+    @NonNull Final isEL(String expected);
 
     /**
      * Validate the extracted value is equal to an expected value, passed as a function
@@ -538,8 +524,7 @@ public interface CheckBuilder {
      * @param expected the expected value as a function
      * @return a new Final
      */
-    @NonNull
-    Final is(Function<Session, X> expected);
+    @NonNull Final is(Function<Session, X> expected);
 
     /**
      * Alias for {@link Validate#is(Function)} as `is` is a reserved keyword in Kotlin
@@ -565,8 +550,7 @@ public interface CheckBuilder {
      * @param expected the unexpected value
      * @return a new Final
      */
-    @NonNull
-    Final not(@NonNull X expected);
+    @NonNull Final not(@NonNull X expected);
 
     /**
      * Validate the extracted value is not an expected value, passed as a Gatling Expression
@@ -575,8 +559,7 @@ public interface CheckBuilder {
      * @param expected the unexpected value as a Gatling Expression Language String
      * @return a new Final
      */
-    @NonNull
-    Final notEL(@NonNull String expected);
+    @NonNull Final notEL(@NonNull String expected);
 
     /**
      * Validate the extracted value is not an expected value, passed as a function
@@ -584,8 +567,7 @@ public interface CheckBuilder {
      * @param expected the unexpected value as a function
      * @return a new Final
      */
-    @NonNull
-    Final not(@NonNull Function<Session, X> expected);
+    @NonNull Final not(@NonNull Function<Session, X> expected);
 
     /**
      * Validate the extracted value is not null
@@ -600,8 +582,7 @@ public interface CheckBuilder {
      * @param expected the set of possible values
      * @return a new Final
      */
-    @NonNull
-    Final in(@NonNull X... expected);
+    @NonNull Final in(@NonNull X... expected);
 
     /**
      * Alias for `in` that's a reserved keyword in Kotlin
@@ -620,8 +601,7 @@ public interface CheckBuilder {
      * @param expected the set of possible values
      * @return a new Final
      */
-    @NonNull
-    Final in(@NonNull List<X> expected);
+    @NonNull Final in(@NonNull List<X> expected);
 
     /**
      * Alias for `in` that's a reserved keyword in Kotlin
@@ -641,8 +621,7 @@ public interface CheckBuilder {
      * @param expected the set of possible values, as a Gatling Expression Language String
      * @return a new Final
      */
-    @NonNull
-    Final inEL(@NonNull String expected);
+    @NonNull Final inEL(@NonNull String expected);
 
     /**
      * Alias for `in` that's a reserved keyword in Kotlin
@@ -661,8 +640,7 @@ public interface CheckBuilder {
      * @param expected the set of possible values, as a function
      * @return a new Final
      */
-    @NonNull
-    Final in(@NonNull Function<Session, List<X>> expected);
+    @NonNull Final in(@NonNull Function<Session, List<X>> expected);
 
     /**
      * Alias for `in` that's a reserved keyword in Kotlin
@@ -680,24 +658,21 @@ public interface CheckBuilder {
      *
      * @return a new Final
      */
-    @NonNull
-    Final exists();
+    @NonNull Final exists();
 
     /**
      * Validate the check was not able to extract any value
      *
      * @return a new Final
      */
-    @NonNull
-    Final notExists();
+    @NonNull Final notExists();
 
     /**
      * Make the check is successful whenever it was able to extract something or not
      *
      * @return a new Final
      */
-    @NonNull
-    Final optional();
+    @NonNull Final optional();
 
     /**
      * Validate the extracted value is less than a given value
@@ -705,8 +680,7 @@ public interface CheckBuilder {
      * @param value the value
      * @return a new Final
      */
-    @NonNull
-    Final lt(@NonNull X value);
+    @NonNull Final lt(@NonNull X value);
 
     /**
      * Validate the extracted value is less than a given value, passed as a Gatling Expression
@@ -715,8 +689,7 @@ public interface CheckBuilder {
      * @param value the value, as a Gatling Expression Language String
      * @return a new Final
      */
-    @NonNull
-    Final ltEL(@NonNull String value);
+    @NonNull Final ltEL(@NonNull String value);
 
     /**
      * Validate the extracted value is less than a given value, passed as a function
@@ -724,8 +697,7 @@ public interface CheckBuilder {
      * @param value the value, as a function
      * @return a new Final
      */
-    @NonNull
-    Final lt(@NonNull Function<Session, X> value);
+    @NonNull Final lt(@NonNull Function<Session, X> value);
 
     /**
      * Validate the extracted value is less than or equal to a given value
@@ -733,8 +705,7 @@ public interface CheckBuilder {
      * @param value the value
      * @return a new Final
      */
-    @NonNull
-    Final lte(@NonNull X value);
+    @NonNull Final lte(@NonNull X value);
 
     /**
      * Validate the extracted value is less than or equal to a given value, passed as a Gatling
@@ -743,8 +714,7 @@ public interface CheckBuilder {
      * @param value the value, as a Gatling Expression Language String
      * @return a new Final
      */
-    @NonNull
-    Final lteEL(@NonNull String value);
+    @NonNull Final lteEL(@NonNull String value);
 
     /**
      * Validate the extracted value is less than or equal to a given value, passed as a function
@@ -752,8 +722,7 @@ public interface CheckBuilder {
      * @param value the value, as a function
      * @return a new Final
      */
-    @NonNull
-    Final lte(@NonNull Function<Session, X> value);
+    @NonNull Final lte(@NonNull Function<Session, X> value);
 
     /**
      * Validate the extracted value is greater than a given value
@@ -761,8 +730,7 @@ public interface CheckBuilder {
      * @param value the value
      * @return a new Final
      */
-    @NonNull
-    Final gt(@NonNull X value);
+    @NonNull Final gt(@NonNull X value);
 
     /**
      * Validate the extracted value is greater than a given value, passed as a Gatling Expression
@@ -771,8 +739,7 @@ public interface CheckBuilder {
      * @param value the value, as a Gatling Expression Language String
      * @return a new Final
      */
-    @NonNull
-    Final gtEL(@NonNull String value);
+    @NonNull Final gtEL(@NonNull String value);
 
     /**
      * Validate the extracted value is greater than a given value, passed as a function
@@ -780,8 +747,7 @@ public interface CheckBuilder {
      * @param value the value, as a function
      * @return a new Final
      */
-    @NonNull
-    Final gt(@NonNull Function<Session, X> value);
+    @NonNull Final gt(@NonNull Function<Session, X> value);
 
     /**
      * Validate the extracted value is greater than or equal to a given value
@@ -789,8 +755,7 @@ public interface CheckBuilder {
      * @param value the value
      * @return a new Final
      */
-    @NonNull
-    Final gte(@NonNull X value);
+    @NonNull Final gte(@NonNull X value);
 
     /**
      * Validate the extracted value is greater than or equal to a given value, passed as a Gatling
@@ -799,8 +764,7 @@ public interface CheckBuilder {
      * @param value the value, as a Gatling Expression Language String
      * @return a new Final
      */
-    @NonNull
-    Final gteEL(@NonNull String value);
+    @NonNull Final gteEL(@NonNull String value);
 
     /**
      * Validate the extracted value is greater than or equal to a given value, passed as a function
@@ -808,8 +772,7 @@ public interface CheckBuilder {
      * @param value the value, as a function
      * @return a new Final
      */
-    @NonNull
-    Final gte(@NonNull Function<Session, X> value);
+    @NonNull Final gte(@NonNull Function<Session, X> value);
 
     /**
      * Default implementation of {@link Validate}
@@ -1066,8 +1029,7 @@ public interface CheckBuilder {
      * @param n the name
      * @return a new Final
      */
-    @NonNull
-    Final name(@NonNull String n);
+    @NonNull Final name(@NonNull String n);
 
     /**
      * Override the default behavior for this check and log or not the actual value in the error
@@ -1076,8 +1038,7 @@ public interface CheckBuilder {
      * @param b true to log the actual value
      * @return a new Final
      */
-    @NonNull
-    Final logActualValueInError(boolean b);
+    @NonNull Final logActualValueInError(boolean b);
 
     /**
      * Save the extracted value in the virtual user's {@link Session}
@@ -1085,8 +1046,7 @@ public interface CheckBuilder {
      * @param key the key to store the extracted value in the {@link Session}
      * @return a new Final
      */
-    @NonNull
-    Final saveAs(@NonNull String key);
+    @NonNull Final saveAs(@NonNull String key);
 
     /**
      * Default implementation of {@link Final}
@@ -1139,8 +1099,7 @@ public interface CheckBuilder {
      * @param count the number of capture groups in the regular expression pattern
      * @return a new MultipleFind
      */
-    @NonNull
-    MultipleFind<List<String>> captureGroups(int count);
+    @NonNull MultipleFind<List<String>> captureGroups(int count);
 
     /**
      * Default implementation of {@link CaptureGroupCheckBuilder}
@@ -1240,64 +1199,56 @@ public interface CheckBuilder {
      *
      * @return a new Find
      */
-    @NonNull
-    Find<String> ofString();
+    @NonNull Find<String> ofString();
 
     /**
      * Define that the extracted value is a Boolean
      *
      * @return a new Find
      */
-    @NonNull
-    Find<Boolean> ofBoolean();
+    @NonNull Find<Boolean> ofBoolean();
 
     /**
      * Define that the extracted value is an Integer
      *
      * @return a new Find
      */
-    @NonNull
-    Find<Integer> ofInt();
+    @NonNull Find<Integer> ofInt();
 
     /**
      * Define that the extracted value is a Long
      *
      * @return a new Find
      */
-    @NonNull
-    Find<Long> ofLong();
+    @NonNull Find<Long> ofLong();
 
     /**
      * Define that the extracted value is a Double
      *
      * @return a new Find
      */
-    @NonNull
-    Find<Double> ofDouble();
+    @NonNull Find<Double> ofDouble();
 
     /**
      * Define that the extracted value is a List (a JSON array)
      *
      * @return a new Find
      */
-    @NonNull
-    Find<List<Object>> ofList();
+    @NonNull Find<List<Object>> ofList();
 
     /**
      * Define that the extracted value is a Map (a JSON object)
      *
      * @return a new Find
      */
-    @NonNull
-    Find<Map<String, Object>> ofMap();
+    @NonNull Find<Map<String, Object>> ofMap();
 
     /**
      * Define that the extracted value is an untyped object
      *
      * @return a new Find
      */
-    @NonNull
-    Find<Object> ofObject();
+    @NonNull Find<Object> ofObject();
 
     /**
      * Default implementation of {@link JsonOfTypeFind}
@@ -1369,64 +1320,56 @@ public interface CheckBuilder {
      *
      * @return a new MultipleFind
      */
-    @NonNull
-    MultipleFind<String> ofString();
+    @NonNull MultipleFind<String> ofString();
 
     /**
      * Define that the extracted value is a Boolean
      *
      * @return a new MultipleFind
      */
-    @NonNull
-    MultipleFind<Boolean> ofBoolean();
+    @NonNull MultipleFind<Boolean> ofBoolean();
 
     /**
      * Define that the extracted value is an Integer
      *
      * @return a new MultipleFind
      */
-    @NonNull
-    MultipleFind<Integer> ofInt();
+    @NonNull MultipleFind<Integer> ofInt();
 
     /**
      * Define that the extracted value is a Long
      *
      * @return a new MultipleFind
      */
-    @NonNull
-    MultipleFind<Long> ofLong();
+    @NonNull MultipleFind<Long> ofLong();
 
     /**
      * Define that the extracted value is a Double
      *
      * @return a new MultipleFind
      */
-    @NonNull
-    MultipleFind<Double> ofDouble();
+    @NonNull MultipleFind<Double> ofDouble();
 
     /**
      * Define that the extracted value is a List (a JSON array)
      *
      * @return a new MultipleFind
      */
-    @NonNull
-    MultipleFind<List<Object>> ofList();
+    @NonNull MultipleFind<List<Object>> ofList();
 
     /**
      * Define that the extracted value is a Map (a JSON object)
      *
      * @return a new MultipleFind
      */
-    @NonNull
-    MultipleFind<Map<String, Object>> ofMap();
+    @NonNull MultipleFind<Map<String, Object>> ofMap();
 
     /**
      * Define that the extracted value is an untyped object
      *
      * @return a new MultipleFind
      */
-    @NonNull
-    MultipleFind<Object> ofObject();
+    @NonNull MultipleFind<Object> ofObject();
 
     /**
      * Default implementation of {@link JsonOfTypeMultipleFind}
@@ -1603,16 +1546,14 @@ public interface CheckBuilder {
      *
      * @return a new MultipleFind
      */
-    @NonNull
-    MultipleFind<String> ofString();
+    @NonNull MultipleFind<String> ofString();
 
     /**
      * Define that the extracted value is a Lagarto DOM Node
      *
      * @return a new MultipleFind
      */
-    @NonNull
-    MultipleFind<Node> ofNode();
+    @NonNull MultipleFind<Node> ofNode();
 
     /**
      * Default implementation of {@link JsonOfTypeMultipleFind}

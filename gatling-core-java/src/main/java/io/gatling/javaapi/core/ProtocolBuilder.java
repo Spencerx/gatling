@@ -23,6 +23,8 @@ package io.gatling.javaapi.core;
  */
 public interface ProtocolBuilder {
 
-  /** @return a Scala protocol */
+  /**
+   * @return a Scala protocol
+   */
   io.gatling.core.protocol.Protocol protocol();
 }

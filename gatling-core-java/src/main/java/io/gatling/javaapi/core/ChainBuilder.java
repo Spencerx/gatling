@@ -41,7 +41,7 @@ public final class ChainBuilder
   public @NonNull ChainBuilder make(
       @NonNull
           Function<io.gatling.core.structure.ChainBuilder, io.gatling.core.structure.ChainBuilder>
-              f) {
+          f) {
     return new ChainBuilder(f.apply(wrapped));
   }
 

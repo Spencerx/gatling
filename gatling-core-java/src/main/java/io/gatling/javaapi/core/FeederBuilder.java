@@ -43,8 +43,7 @@ public interface FeederBuilder<T> {
    *
    * @return a new FeederBuilder
    */
-  @NonNull
-  FeederBuilder<T> queue();
+  @NonNull FeederBuilder<T> queue();
 
   /**
    * Set a random strategy. Records will be provided in a random order, unrelated to the order in
@@ -53,8 +52,7 @@ public interface FeederBuilder<T> {
    *
    * @return a new FeederBuilder
    */
-  @NonNull
-  FeederBuilder<T> random();
+  @NonNull FeederBuilder<T> random();
 
   /**
    * Set a shuffle strategy. Records will be provided in a random order, unrelated to the order in
@@ -63,8 +61,7 @@ public interface FeederBuilder<T> {
    *
    * @return a new FeederBuilder
    */
-  @NonNull
-  FeederBuilder<T> shuffle();
+  @NonNull FeederBuilder<T> shuffle();
 
   /**
    * Set a circular strategy. Records will be provided in the same order as defined in the
@@ -74,8 +71,7 @@ public interface FeederBuilder<T> {
    *
    * @return a new FeederBuilder
    */
-  @NonNull
-  FeederBuilder<T> circular();
+  @NonNull FeederBuilder<T> circular();
 
   /**
    * Provide a function to transform records as defined in the underlying source
@@ -83,16 +79,14 @@ public interface FeederBuilder<T> {
    * @param f the transformation function
    * @return a new FeederBuilder
    */
-  @NonNull
-  FeederBuilder<Object> transform(@NonNull BiFunction<String, T, Object> f);
+  @NonNull FeederBuilder<Object> transform(@NonNull BiFunction<String, T, Object> f);
 
   /**
    * Read all the records of the underlying source.
    *
    * @return the whole data
    */
-  @NonNull
-  List<Map<String, Object>> readRecords();
+  @NonNull List<Map<String, Object>> readRecords();
 
   /**
    * Return the number of records more efficiantly than readRecords().size().
@@ -107,8 +101,7 @@ public interface FeederBuilder<T> {
    *
    * @return a new FeederBuilder
    */
-  @NonNull
-  FeederBuilder<T> shard();
+  @NonNull FeederBuilder<T> shard();
 
   /**
    * For internal use only
@@ -125,32 +118,26 @@ public interface FeederBuilder<T> {
    */
   interface FileBased<T> extends FeederBuilder<T> {
     @Override
-    @NonNull
-    FileBased<T> queue();
+    @NonNull FileBased<T> queue();
 
     @Override
-    @NonNull
-    FileBased<T> random();
+    @NonNull FileBased<T> random();
 
     @Override
-    @NonNull
-    FileBased<T> shuffle();
+    @NonNull FileBased<T> shuffle();
 
     @Override
-    @NonNull
-    FileBased<T> circular();
+    @NonNull FileBased<T> circular();
 
     @Override
-    @NonNull
-    FileBased<T> shard();
+    @NonNull FileBased<T> shard();
 
     /**
      * Advice to unzip the underlying source because it's a zip or tar file
      *
      * @return a new FileBased
      */
-    @NonNull
-    FileBased<T> unzip();
+    @NonNull FileBased<T> unzip();
   }
 
   final class Impl<T> implements FileBased<T> {
