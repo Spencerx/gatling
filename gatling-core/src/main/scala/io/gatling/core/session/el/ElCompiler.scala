@@ -138,7 +138,7 @@ final case class SeqElementPart(seq: ElPart[Any], seqName: String, index: String
   def apply(session: Session): Validation[Any] = {
     @SuppressWarnings(Array("org.wartremover.warts.SeqApply"))
     def seqElementPart(index: Int): Validation[Any] = seq(session).flatMap {
-      case seq: Seq[_] =>
+      case seq: collection.Seq[_] =>
         if (seq.isDefinedAt(index)) {
           seq(index).success
         } else if (index < 0) {
@@ -198,8 +198,8 @@ final case class MapKeyPart(map: ElPart[Any], mapName: String, key: String) exte
   }
 
   def apply(session: Session): Validation[Any] = map(session).flatMap {
-    case m: Map[_, _] =>
-      m.asInstanceOf[Map[Any, _]].get(key) match {
+    case m: collection.Map[_, _] =>
+      m.asInstanceOf[collection.Map[Any, _]].get(key) match {
         case Some(value) => value.success
         case _           => ElMessages.undefinedMapKey(mapName, key)
       }
